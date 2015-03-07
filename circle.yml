@@ -8,7 +8,7 @@ dependencies:
 test:
   override:
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
-    - ./bin/phpunit
+    - ./bin/phpunit 
     - sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     - ./bin/phpmd src/ text phpmd.xml
     - ./bin/phpcs --standard=phpcs.xml src/ -n
