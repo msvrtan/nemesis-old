@@ -29,4 +29,11 @@ class TestMetaDataSpec extends ObjectBehavior
         $this->setFullyQualifiedClassName('Vendor\Package\SomeClass');
         $this->getFullyQualifiedClassName()->shouldReturn('Vendor\Package\SomeClass');
     }
+
+    public function it_should_return_just_namespace_of_the_class()
+    {
+        $this->setClassName('SomeClass');
+        $this->setFullyQualifiedClassName('Vendor\Package\SomeClass');
+        $this->getNamespace()->shouldReturn('Vendor\Package');
+    }
 }

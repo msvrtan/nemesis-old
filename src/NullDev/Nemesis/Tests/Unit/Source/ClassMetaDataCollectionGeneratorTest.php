@@ -22,8 +22,8 @@ class ClassMetaDataCollectionGeneratorTest extends \PHPUnit_Framework_TestCase
 
         $mockSourceMeta = m::mock('NullDev\Nemesis\Source\ClassMetaData');
 
-        $mockFilePath1  = '/path/class.php';
-        $mockFiles = [$mockFilePath1];
+        $mockFilePath1 = '/path/class.php';
+        $mockFiles     = [$mockFilePath1];
 
         $mockFinder
             ->shouldReceive('files')->once()->andReturn($mockFinder);
@@ -32,7 +32,9 @@ class ClassMetaDataCollectionGeneratorTest extends \PHPUnit_Framework_TestCase
         $mockFinder
             ->shouldReceive('in')->with('/path')->once()->andReturn($mockFinder);
         $mockFinder
-            ->shouldReceive('exclude')->with(['excluded-folder-1'])->once()->andReturn($mockFiles);
+            ->shouldReceive('exclude')->with(['excluded-folder-1'])->once()->andReturn($mockFinder);
+        $mockFinder
+            ->shouldReceive('sortByName')->once()->andReturn($mockFiles);
 
         $mockSourceMetaGenerator
             ->shouldReceive('generate')->with($mockFilePath1)->once()->andReturn($mockSourceMeta);

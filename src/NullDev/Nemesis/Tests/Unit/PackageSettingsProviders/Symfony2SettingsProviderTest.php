@@ -374,6 +374,10 @@ class Symfony2SettingsProviderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider dataCalculateRootNamespaceFromRootPath
+     *
+     * @param $rootPath
+     *
+     * @throws \Exception
      */
     public function testCalculateRootNamespaceFromRootPath($rootPath)
     {

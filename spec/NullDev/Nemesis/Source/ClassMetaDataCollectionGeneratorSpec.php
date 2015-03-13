@@ -56,6 +56,9 @@ class ClassMetaDataCollectionGeneratorSpec extends ObjectBehavior
             ->willReturn($finder);
         $finder->exclude(['z'])
             ->shouldBeCalled()
+            ->willReturn($finder);
+        $finder->sortByName()
+            ->shouldBeCalled()
             ->willReturn(['path-to-file1.php']);
 
         $sourceMetaGenerator->generate('path-to-file1.php')->shouldBeCalled()->willReturn($classSourceMeta);

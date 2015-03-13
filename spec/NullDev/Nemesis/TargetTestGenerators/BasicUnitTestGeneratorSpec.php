@@ -13,12 +13,13 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Source\ClassMetaData $sourceMeta
-     * @param NullDev\Nemesis\Target\TestMetaData  $targetMeta
+     * @param NullDev\Nemesis\Import\ImportCollection $importCollection
+     * @param NullDev\Nemesis\Source\ClassMetaData    $sourceMeta
+     * @param NullDev\Nemesis\Target\TestMetaData     $targetMeta
      */
-    public function let($sourceMeta, $targetMeta)
+    public function let($importCollection, $sourceMeta, $targetMeta)
     {
-        $this->beConstructedWith($sourceMeta, $targetMeta);
+        $this->beConstructedWith($importCollection, $sourceMeta, $targetMeta);
     }
 
     public function it_should_know_which_template_is_used()
@@ -29,14 +30,9 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
     public function it_should_know_target_namespace($targetMeta)
     {
         $targetMeta
-            ->getClassName()
+            ->getNamespace()
             ->shouldBeCalled()
-            ->willReturn('SomeClassTest');
-
-        $targetMeta
-            ->getFullyQualifiedClassName()
-            ->shouldBeCalled()
-            ->willReturn('Vendor\SomeBundle\Tests\Unit\Package\Namespace\SomeClassTest');
+            ->willReturn('Vendor\SomeBundle\Tests\Unit\Package\Namespace');
 
         $this->getTargetNamespace()->shouldReturn('Vendor\SomeBundle\Tests\Unit\Package\Namespace');
     }
@@ -48,12 +44,7 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn('Vendor\SomeBundle\Package\Namespace\SomeClass');
 
-        $expected = [
-            'Vendor\SomeBundle\Package\Namespace\SomeClass',
-            'Mockery as m',
-        ];
-
-        $this->getImports()->shouldReturn($expected);
+        $this->getImports()->shouldReturnAnInstanceOf('NullDev\Nemesis\Import\ImportCollection');
     }
 
     public function it_should_know_target_class_name($targetMeta)
@@ -74,5 +65,25 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
             ->willReturn('SomeClass');
 
         $this->getSourceClassName()->shouldReturn('SomeClass');
+    }
+
+    public function it_should_return_all_relevant_variables($sourceMeta, $targetMeta)
+    {
+        $sourceMeta
+            ->getFullyQualifiedClassName()
+            ->shouldBeCalled()
+            ->willReturn('Vendor\SomeBundle\Package\Namespace\SomeClass');
+        $sourceMeta
+            ->getClassName()->shouldBeCalled()->willReturn('SomeClass');
+
+        $targetMeta
+            ->getClassName()->shouldBeCalled()->willReturn('SomeClassTest');
+
+        $targetMeta
+            ->getNamespace()
+            ->shouldBeCalled()
+            ->willReturn('Vendor\SomeBundle\Tests\Unit\Package\Namespace');
+
+        $this->getVars()->shouldHaveCount(4);
     }
 }

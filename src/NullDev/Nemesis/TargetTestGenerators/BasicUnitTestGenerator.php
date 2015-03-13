@@ -2,6 +2,7 @@
 
 namespace NullDev\Nemesis\TargetTestGenerators;
 
+use NullDev\Nemesis\Import\ImportCollection;
 use NullDev\Nemesis\Source\ClassMetaData;
 use NullDev\Nemesis\Target\TestMetaData;
 
@@ -9,18 +10,22 @@ class BasicUnitTestGenerator
 {
     protected $templateName = 'BasicUnitTest';
 
+    protected $importCollection;
+
     protected $sourceMeta;
 
     protected $targetMeta;
 
     /**
-     * @param ClassMetaData $sourceMeta
-     * @param TestMetaData  $targetMeta
+     * @param ImportCollection $importCollection
+     * @param ClassMetaData    $sourceMeta
+     * @param TestMetaData     $targetMeta
      */
-    public function __construct(ClassMetaData $sourceMeta, TestMetaData $targetMeta)
+    public function __construct(ImportCollection $importCollection, ClassMetaData $sourceMeta, TestMetaData $targetMeta)
     {
-        $this->sourceMeta = $sourceMeta;
-        $this->targetMeta = $targetMeta;
+        $this->importCollection = $importCollection;
+        $this->sourceMeta       = $sourceMeta;
+        $this->targetMeta       = $targetMeta;
     }
 
     /**
@@ -31,17 +36,22 @@ class BasicUnitTestGenerator
         return $this->templateName;
     }
 
+    public function getVars()
+    {
+        return [
+            'targetNamespace' => $this->getTargetNamespace(),
+            'imports'         => $this->getImports(),
+            'targetClassName' => $this->getTargetClassName(),
+            'sourceClassName' => $this->getSourceClassName(),
+        ];
+    }
+
     /**
      * @return string
      */
     public function getTargetNamespace()
     {
-        $className = $this->targetMeta->getClassName();
-        $fqdn      = $this->targetMeta->getFullyQualifiedClassName();
-
-        $namespace = str_replace('\\'.$className, '', $fqdn);
-
-        return $namespace;
+        return $this->targetMeta->getNamespace();
     }
 
     /**
@@ -49,16 +59,17 @@ class BasicUnitTestGenerator
      */
     public function getImports()
     {
-        return [
-            $this->sourceMeta->getFullyQualifiedClassName(),
-            'Mockery as m',
-        ];
+        $this->importCollection->addClass($this->sourceMeta->getFullyQualifiedClassName());
+        $this->importCollection->addClass('Mockery', 'm');
+
+        return $this->importCollection;
     }
 
     public function getTargetClassName()
     {
         return $this->targetMeta->getClassName();
     }
+
     public function getSourceClassName()
     {
         return $this->sourceMeta->getClassName();

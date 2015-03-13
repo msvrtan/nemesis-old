@@ -2,6 +2,7 @@
 
 namespace NullDev\Nemesis\TargetTestGenerators;
 
+use NullDev\Nemesis\Import\ImportCollection;
 use NullDev\Nemesis\TargetTestGenerators\BasicUnitTestGenerator;
 
 class TestGeneratorFactory
@@ -14,6 +15,11 @@ class TestGeneratorFactory
      */
     public function createBasicUnit($sourceMeta, $targetMeta)
     {
-        return new BasicUnitTestGenerator($sourceMeta, $targetMeta);
+        return new BasicUnitTestGenerator($this->getImportCollection(), $sourceMeta, $targetMeta);
+    }
+
+    public function getImportCollection()
+    {
+        return new ImportCollection();
     }
 }

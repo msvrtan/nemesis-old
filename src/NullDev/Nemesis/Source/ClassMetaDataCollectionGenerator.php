@@ -36,7 +36,8 @@ class ClassMetaDataCollectionGenerator
             ->files()
             ->name('*.php')
             ->in($settings->getSourceCode()->getRootPath())
-            ->exclude($settings->getSourceCode()->getExcludeFolders());
+            ->exclude($settings->getSourceCode()->getExcludeFolders())
+            ->sortByName();
 
         foreach ($files as $filePath) {
             $sourceMeta = $this->sourceMetaGenerator->generate($filePath);

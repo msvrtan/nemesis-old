@@ -55,4 +55,21 @@ class TestMetaData
     {
         $this->fullyQualifiedClassName = $fullyQualifiedClassName;
     }
+
+    /**
+     * @return string
+     */
+    public function getNamespace()
+    {
+        $className = $this->getClassName();
+        $fqdn      = $this->getFullyQualifiedClassName();
+
+        if ($fqdn === $className) {
+            return null;
+        }
+
+        $namespace = str_replace('\\'.$className, '', $fqdn);
+
+        return $namespace;
+    }
 }

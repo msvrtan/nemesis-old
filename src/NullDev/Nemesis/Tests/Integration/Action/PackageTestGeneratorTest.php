@@ -74,13 +74,13 @@ class PackageTestGeneratorTest extends IntegrationTestBase
             $result->getAll()[0]->getFilePath()
         );
 
-        $this->assertEquals('SimpleCalculatorTest', $result->getAll()[1]->getClassName());
+        $this->assertEquals('BasicCalculatorTest', $result->getAll()[1]->getClassName());
         $this->assertEquals(
-            'Vendor\SomeBundle\Tests\Unit\Calculator\SimpleCalculatorTest',
+            'Vendor\SomeBundle\Tests\Unit\Calculator\BasicCalculatorTest',
             $result->getAll()[1]->getFullyQualifiedClassName()
         );
         $this->assertEquals(
-            $rootPath.'/Tests/Unit/Calculator/SimpleCalculatorTest.php',
+            $rootPath.'/Tests/Unit/Calculator/BasicCalculatorTest.php',
             $result->getAll()[1]->getFilePath()
         );
 
@@ -94,13 +94,13 @@ class PackageTestGeneratorTest extends IntegrationTestBase
             $result->getAll()[2]->getFilePath()
         );
 
-        $this->assertEquals('BasicCalculatorTest', $result->getAll()[3]->getClassName());
+        $this->assertEquals('SimpleCalculatorTest', $result->getAll()[3]->getClassName());
         $this->assertEquals(
-            'Vendor\SomeBundle\Tests\Unit\Calculator\BasicCalculatorTest',
+            'Vendor\SomeBundle\Tests\Unit\Calculator\SimpleCalculatorTest',
             $result->getAll()[3]->getFullyQualifiedClassName()
         );
         $this->assertEquals(
-            $rootPath.'/Tests/Unit/Calculator/BasicCalculatorTest.php',
+            $rootPath.'/Tests/Unit/Calculator/SimpleCalculatorTest.php',
             $result->getAll()[3]->getFilePath()
         );
 
