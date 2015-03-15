@@ -47,4 +47,20 @@ class TestClassResultSpec extends ObjectBehavior
     {
         $this->addImportItem($importItem);
     }
+
+    /**
+     * @param NullDev\Nemesis\Target\Property\PropertyItem $propertyItem
+     */
+    public function it_should_support_adding_new_property_item($propertyItem)
+    {
+        $this->addPropertyItem($propertyItem);
+    }
+
+    /**
+     * @param NullDev\Nemesis\Target\Method\MethodItem $methodItem
+     */
+    public function it_should_support_adding_new_method_item($methodItem)
+    {
+        $this->addMethodItem($methodItem);
+    }
 }

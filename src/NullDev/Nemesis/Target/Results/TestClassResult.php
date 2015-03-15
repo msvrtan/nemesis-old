@@ -5,7 +5,9 @@ namespace NullDev\Nemesis\Target\Results;
 use NullDev\Nemesis\Target\Import\ImportCollection;
 use NullDev\Nemesis\Target\Import\ImportItem;
 use NullDev\Nemesis\Target\Method\MethodCollection;
+use NullDev\Nemesis\Target\Method\MethodItem;
 use NullDev\Nemesis\Target\Property\PropertyCollection;
+use NullDev\Nemesis\Target\Property\PropertyItem;
 
 class TestClassResult
 {
@@ -77,6 +79,20 @@ class TestClassResult
     public function addImportItem(ImportItem $importItem)
     {
         $this->importCollection->add($importItem);
+
+        return true;
+    }
+
+    public function addPropertyItem(PropertyItem $propertyItem)
+    {
+        $this->propertyCollection->add($propertyItem);
+
+        return true;
+    }
+
+    public function addMethodItem(MethodItem $methodItem)
+    {
+        $this->methodCollection->add($methodItem);
 
         return true;
     }
