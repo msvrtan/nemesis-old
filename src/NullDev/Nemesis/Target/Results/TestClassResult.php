@@ -69,6 +69,30 @@ class TestClassResult
     }
 
     /**
+     * @return ImportCollection
+     */
+    public function getImportCollection()
+    {
+        return $this->importCollection;
+    }
+
+    /**
+     * @return PropertyCollection
+     */
+    public function getPropertyCollection()
+    {
+        return $this->propertyCollection;
+    }
+
+    /**
+     * @return MethodCollection
+     */
+    public function getMethodCollection()
+    {
+        return $this->methodCollection;
+    }
+
+    /**
      * @param string $extendsClassName
      */
     public function setExtendsClassName($extendsClassName)

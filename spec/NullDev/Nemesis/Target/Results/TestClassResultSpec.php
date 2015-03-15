@@ -63,4 +63,25 @@ class TestClassResultSpec extends ObjectBehavior
     {
         $this->addMethodItem($methodItem);
     }
+
+    /**
+     */
+    public function it_should_return_all_import_items()
+    {
+        $this->getImportCollection();
+    }
+
+    /**
+     */
+    public function it_should_return_all_property_items()
+    {
+        $this->getPropertyCollection();
+    }
+
+    /**
+     */
+    public function it_should_return_all_method_items()
+    {
+        $this->getMethodCollection();
+    }
 }
