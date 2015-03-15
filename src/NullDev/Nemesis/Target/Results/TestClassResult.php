@@ -24,4 +24,52 @@ class TestClassResult
         $this->propertyCollection = $propertyCollection;
         $this->methodCollection   = $methodCollection;
     }
+
+    /**
+     * @return string
+     */
+    public function getClassName()
+    {
+        return $this->className;
+    }
+
+    /**
+     * @param string $className
+     */
+    public function setClassName($className)
+    {
+        $this->className = $className;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNamespace()
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param string $namespace
+     */
+    public function setNamespace($namespace)
+    {
+        $this->namespace = $namespace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtendsClassName()
+    {
+        return $this->extendsClassName;
+    }
+
+    /**
+     * @param string $extendsClassName
+     */
+    public function setExtendsClassName($extendsClassName)
+    {
+        $this->extendsClassName = $extendsClassName;
+    }
 }

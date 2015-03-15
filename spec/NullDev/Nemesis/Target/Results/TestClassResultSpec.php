@@ -21,4 +21,22 @@ class TestClassResultSpec extends ObjectBehavior
     {
         $this->beConstructedWith($importCollection, $propertyCollection, $methodCollection);
     }
+
+    public function it_should_know_class_name()
+    {
+        $this->setClassName('ClassName');
+        $this->getClassName()->shouldReturn('ClassName');
+    }
+
+    public function it_should_know_namespace()
+    {
+        $this->setNamespace('Vendor\Package\Namespace');
+        $this->getNamespace()->shouldReturn('Vendor\Package\Namespace');
+    }
+
+    public function it_should_know_extending_class_name()
+    {
+        $this->setExtendsClassName('SomeVendor\SomePackage\SomeNamespace\ParentClass');
+        $this->getExtendsClassName()->shouldReturn('SomeVendor\SomePackage\SomeNamespace\ParentClass');
+    }
 }
