@@ -7,8 +7,13 @@ use Prophecy\Argument;
 
 class TestClassResultFactorySpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NullDev\Nemesis\Target\Results\TestClassResultFactory');
+    }
+
+    public function it_should_create_empty_test_class_result_with_all_dependencies_setup()
+    {
+        $this->create()->shouldReturnAnInstanceOf('NullDev\Nemesis\Target\Results\TestClassResult');
     }
 }

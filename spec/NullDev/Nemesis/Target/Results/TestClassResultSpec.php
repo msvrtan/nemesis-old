@@ -7,8 +7,13 @@ use Prophecy\Argument;
 
 class TestClassResultSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NullDev\Nemesis\Target\Results\TestClassResult');
+    }
+
+    public function let()
+    {
+        $this->beConstructedWith();
     }
 }
