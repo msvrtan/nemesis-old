@@ -3,6 +3,8 @@
 namespace NullDev\Nemesis\Target\Results;
 
 use NullDev\Nemesis\Target\Import\ImportCollection;
+use NullDev\Nemesis\Target\Method\MethodCollection;
+use NullDev\Nemesis\Target\Property\PropertyCollection;
 
 class TestClassResult
 {
@@ -13,9 +15,13 @@ class TestClassResult
     protected $propertyCollection;
     protected $methodCollection;
 
-    public function __construct()
-    {
-        $this->importCollection = new ImportCollection();
-        //
+    public function __construct(
+        ImportCollection $importCollection,
+        PropertyCollection $propertyCollection,
+        MethodCollection $methodCollection
+    ) {
+        $this->importCollection   = $importCollection;
+        $this->propertyCollection = $propertyCollection;
+        $this->methodCollection   = $methodCollection;
     }
 }

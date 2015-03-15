@@ -12,8 +12,13 @@ class TestClassResultSpec extends ObjectBehavior
         $this->shouldHaveType('NullDev\Nemesis\Target\Results\TestClassResult');
     }
 
-    public function let()
+    /**
+     * @param NullDev\Nemesis\Target\Import\ImportCollection     $importCollection
+     * @param NullDev\Nemesis\Target\Property\PropertyCollection $propertyCollection
+     * @param NullDev\Nemesis\Target\Method\MethodCollection     $methodCollection
+     */
+    public function let($importCollection, $propertyCollection, $methodCollection)
     {
-        $this->beConstructedWith();
+        $this->beConstructedWith($importCollection, $propertyCollection, $methodCollection);
     }
 }
