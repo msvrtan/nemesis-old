@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\NullDev\Nemesis\Import;
+namespace spec\NullDev\Nemesis\Target\Import;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class ImportItemSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Nemesis\Import\ImportItem');
+        $this->shouldHaveType('NullDev\Nemesis\Target\Import\ImportItem');
     }
 
     public function let()

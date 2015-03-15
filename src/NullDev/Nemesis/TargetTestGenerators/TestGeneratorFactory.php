@@ -2,7 +2,7 @@
 
 namespace NullDev\Nemesis\TargetTestGenerators;
 
-use NullDev\Nemesis\Import\ImportCollection;
+use NullDev\Nemesis\Target\Import\ImportCollection;
 use NullDev\Nemesis\TargetTestGenerators\BasicUnitTestGenerator;
 
 class TestGeneratorFactory

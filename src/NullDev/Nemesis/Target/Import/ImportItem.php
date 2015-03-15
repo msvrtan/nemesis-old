@@ -1,6 +1,6 @@
 <?php
 
-namespace NullDev\Nemesis\Import;
+namespace NullDev\Nemesis\Target\Import;
 
 class ImportItem
 {

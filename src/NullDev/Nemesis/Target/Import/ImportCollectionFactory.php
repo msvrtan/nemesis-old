@@ -1,8 +1,8 @@
 <?php
 
-namespace NullDev\Nemesis\Import;
+namespace NullDev\Nemesis\Target\Import;
 
-use NullDev\Nemesis\Import\ImportCollection;
+use NullDev\Nemesis\Target\Import\ImportCollection;
 
 class ImportCollectionFactory
 {

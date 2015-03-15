@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\NullDev\Nemesis\Import;
+namespace spec\NullDev\Nemesis\Target\Import;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class ImportCollectionSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Nemesis\Import\ImportCollection');
+        $this->shouldHaveType('NullDev\Nemesis\Target\Import\ImportCollection');
     }
 
     /**
@@ -31,7 +31,7 @@ class ImportCollectionSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Import\ImportItem $item
+     * @param NullDev\Nemesis\Target\Import\ImportItem $item
      */
     public function it_should_allow_adding_new_item_into_collection($item)
     {
@@ -46,7 +46,7 @@ class ImportCollectionSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Import\ImportItem $item1
+     * @param NullDev\Nemesis\Target\Import\ImportItem $item1
      */
     public function it_should_render_collection_without_alias($item1)
     {
@@ -59,7 +59,7 @@ class ImportCollectionSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Import\ImportItem $item1
+     * @param NullDev\Nemesis\Target\Import\ImportItem $item1
      */
     public function it_should_render_collection_with_alias($item1)
     {
@@ -72,8 +72,8 @@ class ImportCollectionSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Import\ImportItem $item1
-     * @param NullDev\Nemesis\Import\ImportItem $item2
+     * @param NullDev\Nemesis\Target\Import\ImportItem $item1
+     * @param NullDev\Nemesis\Target\Import\ImportItem $item2
      */
     public function it_should_render_collection_with_multiple_items_in($item1, $item2)
     {

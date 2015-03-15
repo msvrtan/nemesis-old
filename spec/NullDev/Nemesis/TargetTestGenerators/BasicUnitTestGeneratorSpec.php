@@ -13,9 +13,9 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
     }
 
     /**
-     * @param NullDev\Nemesis\Import\ImportCollection $importCollection
-     * @param NullDev\Nemesis\Source\ClassMetaData    $sourceMeta
-     * @param NullDev\Nemesis\Target\TestMetaData     $targetMeta
+     * @param NullDev\Nemesis\Target\Import\ImportCollection $importCollection
+     * @param NullDev\Nemesis\Source\ClassMetaData           $sourceMeta
+     * @param NullDev\Nemesis\Target\TestMetaData            $targetMeta
      */
     public function let($importCollection, $sourceMeta, $targetMeta)
     {
@@ -44,7 +44,7 @@ class BasicUnitTestGeneratorSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn('Vendor\SomeBundle\Package\Namespace\SomeClass');
 
-        $this->getImports()->shouldReturnAnInstanceOf('NullDev\Nemesis\Import\ImportCollection');
+        $this->getImports()->shouldReturnAnInstanceOf('NullDev\Nemesis\Target\Import\ImportCollection');
     }
 
     public function it_should_know_target_class_name($targetMeta)
