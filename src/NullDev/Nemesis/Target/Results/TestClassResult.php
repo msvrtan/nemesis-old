@@ -3,6 +3,7 @@
 namespace NullDev\Nemesis\Target\Results;
 
 use NullDev\Nemesis\Target\Import\ImportCollection;
+use NullDev\Nemesis\Target\Import\ImportItem;
 use NullDev\Nemesis\Target\Method\MethodCollection;
 use NullDev\Nemesis\Target\Property\PropertyCollection;
 
@@ -71,5 +72,12 @@ class TestClassResult
     public function setExtendsClassName($extendsClassName)
     {
         $this->extendsClassName = $extendsClassName;
+    }
+
+    public function addImportItem(ImportItem $importItem)
+    {
+        $this->importCollection->add($importItem);
+
+        return true;
     }
 }

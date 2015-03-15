@@ -39,4 +39,12 @@ class TestClassResultSpec extends ObjectBehavior
         $this->setExtendsClassName('SomeVendor\SomePackage\SomeNamespace\ParentClass');
         $this->getExtendsClassName()->shouldReturn('SomeVendor\SomePackage\SomeNamespace\ParentClass');
     }
+
+    /**
+     * @param NullDev\Nemesis\Target\Import\ImportItem $importItem
+     */
+    public function it_should_support_adding_new_import_item($importItem)
+    {
+        $this->addImportItem($importItem);
+    }
 }
