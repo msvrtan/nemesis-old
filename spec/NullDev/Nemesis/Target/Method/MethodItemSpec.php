@@ -11,4 +11,21 @@ class MethodItemSpec extends ObjectBehavior
     {
         $this->shouldHaveType('NullDev\Nemesis\Target\Method\MethodItem');
     }
+
+    public function it_should_support_method_visibility()
+    {
+        $this->setVisibility('protected');
+        $this->getVisibility()->shouldReturn('protected');
+    }
+
+    public function it_has_public_as_default_visiblity()
+    {
+        $this->getVisibility()->shouldReturn('public');
+    }
+
+    public function it_should_support_method_name()
+    {
+        $this->setName('methodName');
+        $this->getName()->shouldReturn('methodName');
+    }
 }

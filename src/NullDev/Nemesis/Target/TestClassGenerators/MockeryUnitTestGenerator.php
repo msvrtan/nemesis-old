@@ -3,6 +3,7 @@
 namespace NullDev\Nemesis\Target\TestClassGenerators;
 
 use NullDev\Nemesis\Target\Import\ImportItem;
+use NullDev\Nemesis\Target\Property\PropertyItem;
 use NullDev\Nemesis\Target\Results\TestClassResultFactory;
 use NullDev\Nemesis\Source\ClassMetaData;
 use NullDev\Nemesis\Target\TestMetaData;
@@ -36,6 +37,8 @@ class MockeryUnitTestGenerator
 
         $result->addImportItem(new ImportItem($sourceMeta->getFullyQualifiedClassName()));
         $result->addImportItem(new ImportItem('Mockery', 'm'));
+
+        $result->addPropertyItem(new PropertyItem('object'));
 
         return $result;
     }
